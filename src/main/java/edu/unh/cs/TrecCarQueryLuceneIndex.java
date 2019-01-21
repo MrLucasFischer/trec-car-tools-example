@@ -72,9 +72,6 @@ public class TrecCarQueryLuceneIndex {
     public static void main(String[] args) throws IOException {
         System.setProperty("file.encoding", "UTF-8");
 
-        String[] arg = {"iterate-topics", "a", "a"};
-        args = arg;
-
         if (args.length < 3)
             usage();
 
