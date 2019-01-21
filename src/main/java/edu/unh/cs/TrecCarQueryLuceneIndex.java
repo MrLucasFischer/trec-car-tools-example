@@ -199,7 +199,7 @@ public class TrecCarQueryLuceneIndex {
             searcher.setSimilarity(new BM25Similarity());
             final MyQueryBuilder queryBuilder = new MyQueryBuilder(new StandardAnalyzer());
 
-            try (BufferedReader br = new BufferedReader(new FileReader("data/benchmarkY2.titles"))) {
+            try (BufferedReader br = new BufferedReader(new FileReader("./data/benchmarkY2.titles"))) {
                 String line = br.readLine();
 
 //                TODO to iterate over all lines

@@ -39,15 +39,15 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="5" />
-          <entry key="java" value="577" />
-          <entry key="txt" value="115" />
+          <entry key="java" value="580" />
+          <entry key="txt" value="144" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="577" />
-          <entry key="PLAIN_TEXT" value="120" />
+          <entry key="JAVA" value="580" />
+          <entry key="PLAIN_TEXT" value="149" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -67,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="196" column="87" selection-start-line="196" selection-start-column="87" selection-end-line="196" selection-end-column="87" />
+            <state relative-caret-position="228">
+              <caret line="201" column="73" selection-start-line="201" selection-start-column="73" selection-end-line="201" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#8208#8222#0" expanded="true" />
@@ -172,7 +172,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548092828090" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548093011630" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../stackoverflow-ri" />
   </component>
   <component name="RecentsManager">
@@ -272,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548092646244</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="change IndexSearcher">
+      <created>1548092848658</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1548092848658</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -316,7 +323,8 @@
     <MESSAGE value="testing new mode" />
     <MESSAGE value="Testing new mode" />
     <MESSAGE value="Updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates" />
+    <MESSAGE value="change IndexSearcher" />
+    <option name="LAST_COMMIT_MESSAGE" value="change IndexSearcher" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-core/7.2.0/lucene-core-7.2.0.jar!/org/apache/lucene/document/TextField.class">
@@ -363,8 +371,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="196" column="87" selection-start-line="196" selection-start-column="87" selection-end-line="196" selection-end-column="87" />
+        <state relative-caret-position="228">
+          <caret line="201" column="73" selection-start-line="201" selection-start-column="73" selection-end-line="201" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#8208#8222#0" expanded="true" />
