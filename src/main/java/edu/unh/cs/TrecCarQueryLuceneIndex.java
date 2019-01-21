@@ -194,7 +194,7 @@ public class TrecCarQueryLuceneIndex {
 
             }
         } else if (mode.equals("iterate-topics")) {
-            IndexSearcher searcher = setupIndexSearcher(indexPath, "pages.lucene");
+            IndexSearcher searcher = setupIndexSearcher(indexPath, "paragraph.lucene");
 
             searcher.setSimilarity(new BM25Similarity());
             final MyQueryBuilder queryBuilder = new MyQueryBuilder(new StandardAnalyzer());
