@@ -15,10 +15,7 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.StringReader;
+import java.io.*;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -197,8 +194,18 @@ public class TrecCarQueryLuceneIndex {
 
             }
         } else if(mode.equals("iterate-topics")){
-            System.out.println("hey");
-            System.exit(-1);
+            IndexSearcher searcher = setupIndexSearcher(indexPath, "pages.lucene");
+
+            searcher.setSimilarity(new BM25Similarity());
+
+            try (BufferedReader br = new BufferedReader(new FileReader("benchmarkY2.titles"))){
+                String line = br.readLine();
+                System.out.println(line);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
