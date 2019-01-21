@@ -45,7 +45,7 @@ public class TrecCarQueryLuceneIndex {
         private final StandardAnalyzer analyzer;
         private List<String> tokens;
 
-        public MyQueryBuilder(StandardAnalyzer standardAnalyzer){
+        public MyQueryBuilder(StandardAnalyzer standardAnalyzer) {
             analyzer = standardAnalyzer;
             tokens = new ArrayList<>(128);
         }
@@ -72,6 +72,9 @@ public class TrecCarQueryLuceneIndex {
     public static void main(String[] args) throws IOException {
         System.setProperty("file.encoding", "UTF-8");
 
+        String[] arg = {"iterate-topics", "a", "a"};
+        args = arg;
+
         if (args.length < 3)
             usage();
 
@@ -88,7 +91,7 @@ public class TrecCarQueryLuceneIndex {
             final String pagesFile = args[1];
             final FileInputStream fileInputStream3 = new FileInputStream(new File(pagesFile));
             for (Data.Page page : DeserializeData.iterableAnnotations(fileInputStream3)) {
-                System.out.println("\n\nPage: "+page.getPageId());
+                System.out.println("\n\nPage: " + page.getPageId());
                 for (List<Data.Section> sectionPath : page.flatSectionPaths()) {
                     System.out.println();
                     System.out.println(Data.sectionPathId(page.getPageId(), sectionPath) + "   \t " + Data.sectionPathHeadings(sectionPath));
@@ -98,11 +101,11 @@ public class TrecCarQueryLuceneIndex {
                     // get top 10 documents
                     TopDocs tops = searcher.search(queryBuilder.toQuery(queryStr), 10);
                     ScoreDoc[] scoreDoc = tops.scoreDocs;
-                    System.out.println("Found "+scoreDoc.length+" results.");
+                    System.out.println("Found " + scoreDoc.length + " results.");
                     for (ScoreDoc score : scoreDoc) {
                         final Document doc = searcher.doc(score.doc); // to access stored content
                         // print score and internal docid
-                        System.out.println(doc.getField("paragraphid").stringValue()+ " (" + score.doc + "):  SCORE " + score.score + "\n");
+                        System.out.println(doc.getField("paragraphid").stringValue() + " (" + score.doc + "):  SCORE " + score.score + "\n");
                         // access and print content
 //                        System.out.println("  " +doc.getField("text").stringValue());
                     }
@@ -110,7 +113,7 @@ public class TrecCarQueryLuceneIndex {
                 }
                 System.out.println();
             }
-        } else  if (mode.equals("paragraphs-run-sections")) {
+        } else if (mode.equals("paragraphs-run-sections")) {
             IndexSearcher searcher = setupIndexSearcher(indexPath, "paragraph.lucene");
 
             searcher.setSimilarity(new BM25Similarity());
@@ -132,14 +135,14 @@ public class TrecCarQueryLuceneIndex {
                         // print score and internal docid
                         final String paragraphid = doc.getField("paragraphid").stringValue();
                         final float searchScore = score.score;
-                        final int searchRank = i+1;
+                        final int searchRank = i + 1;
 
-                        System.out.println(queryId+" Q0 "+paragraphid+" "+searchRank + " "+searchScore+" Lucene-BM25");
+                        System.out.println(queryId + " Q0 " + paragraphid + " " + searchRank + " " + searchScore + " Lucene-BM25");
                     }
 
                 }
             }
-        }  else  if (mode.equals("paragraphs-run-pages")) {
+        } else if (mode.equals("paragraphs-run-pages")) {
             IndexSearcher searcher = setupIndexSearcher(indexPath, "paragraph.lucene");
 
             searcher.setSimilarity(new BM25Similarity());
@@ -160,13 +163,13 @@ public class TrecCarQueryLuceneIndex {
                     // print score and internal docid
                     final String paragraphid = doc.getField("paragraphid").stringValue();
                     final float searchScore = score.score;
-                    final int searchRank = i+1;
+                    final int searchRank = i + 1;
 
-                    System.out.println(queryId+" Q0 "+paragraphid+" "+searchRank + " "+searchScore+" Lucene-BM25");
+                    System.out.println(queryId + " Q0 " + paragraphid + " " + searchRank + " " + searchScore + " Lucene-BM25");
                 }
 
             }
-        }  else  if (mode.equals("pages-run-pages")) {
+        } else if (mode.equals("pages-run-pages")) {
             IndexSearcher searcher = setupIndexSearcher(indexPath, "pages.lucene");
 
             searcher.setSimilarity(new BM25Similarity());
@@ -187,20 +190,31 @@ public class TrecCarQueryLuceneIndex {
                     // print score and internal docid
                     final String paragraphid = doc.getField("pageid").stringValue();
                     final float searchScore = score.score;
-                    final int searchRank = i+1;
+                    final int searchRank = i + 1;
 
-                    System.out.println(queryId+" Q0 "+paragraphid+" "+searchRank + " "+searchScore+" Lucene-BM25");
+                    System.out.println(queryId + " Q0 " + paragraphid + " " + searchRank + " " + searchScore + " Lucene-BM25");
                 }
 
             }
-        } else if(mode.equals("iterate-topics")){
+        } else if (mode.equals("iterate-topics")) {
             IndexSearcher searcher = setupIndexSearcher(indexPath, "pages.lucene");
 
             searcher.setSimilarity(new BM25Similarity());
+            final MyQueryBuilder queryBuilder = new MyQueryBuilder(new StandardAnalyzer());
 
-            try (BufferedReader br = new BufferedReader(new FileReader("benchmarkY2.titles"))){
+            try (BufferedReader br = new BufferedReader(new FileReader("data/benchmarkY2.titles"))) {
                 String line = br.readLine();
-                System.out.println(line);
+
+                TopDocs tops = searcher.search(queryBuilder.toQuery(line), 100);
+                ScoreDoc[] scoreDoc = tops.scoreDocs;
+                System.out.println("Found " + scoreDoc.length + " results.");
+                for (ScoreDoc score : scoreDoc) {
+                    final Document doc = searcher.doc(score.doc); // to access stored content
+                    // print score and internal docid
+                    System.out.println(doc.getField("paragraphid").stringValue() + " (" + score.doc + "):  SCORE " + score.score + "\n");
+                    // access and print content
+//                        System.out.println("  " +doc.getField("text").stringValue());
+                }
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -221,7 +235,7 @@ public class TrecCarQueryLuceneIndex {
     private static String buildSectionQueryStr(Data.Page page, List<Data.Section> sectionPath) {
         StringBuilder queryStr = new StringBuilder();
         queryStr.append(page.getPageName());
-        for (Data.Section section: sectionPath) {
+        for (Data.Section section : sectionPath) {
             queryStr.append(" ").append(section.getHeading());
         }
 //        System.out.println("queryStr = " + queryStr);
