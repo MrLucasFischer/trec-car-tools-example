@@ -196,7 +196,7 @@ public class TrecCarQueryLuceneIndex {
                 }
 
             }
-        } else {
+        } else if(mode.equals("iterate-topics")){
             System.out.println("hey");
             System.exit(-1);
         }
