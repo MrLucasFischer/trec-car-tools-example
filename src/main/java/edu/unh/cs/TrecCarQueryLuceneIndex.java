@@ -204,17 +204,6 @@ public class TrecCarQueryLuceneIndex {
             try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
                 String line = br.readLine();
 
-//                TODO to iterate over all lines
-//                while (line != null) {
-
-
-//
-//                    if (line.equals("")) {
-//                        break;
-//                    }
-//                    line = br.readLine();
-//                }
-
                 TopDocs tops = searcher.search(queryBuilder.toQuery(line), 100);
                 ScoreDoc[] scoreDoc = tops.scoreDocs;
                 System.out.println("Found " + scoreDoc.length + " results.");
@@ -224,7 +213,9 @@ public class TrecCarQueryLuceneIndex {
                     System.out.println(doc.getField("paragraphid").stringValue() + " (" + score.doc + "):  SCORE " + score.score + "\n");
                     // access and print content
 //                        System.out.println("  " +doc.getField("text").stringValue());
+                    System.out.println(line);
                 }
+                System.out.println(line);
 
 
             } catch (Exception e) {
