@@ -206,11 +206,15 @@ public class TrecCarQueryLuceneIndex {
             final MyQueryBuilder queryBuilder = new MyQueryBuilder(new StandardAnalyzer());
 
             String titlesFilePath = args[1];  //Get benchmarkY2.titles file
+            try {
+                List<String> lines = Files.readAllLines(Paths.get(args[3]), StandardCharsets.UTF_8);
+                System.out.println(args[3]);
+                System.out.println(lines.size());
+                System.out.println(lines.get(0));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-            List<String> lines = Files.readAllLines(Paths.get(args[3]), StandardCharsets.UTF_8);
-            System.out.println(args[3]);
-            System.out.println(lines.size());
-            System.out.println(lines.get(0));
 
 //            try (BufferedReader br = new BufferedReader(new FileReader(titlesFilePath))) {
 //                String line = br.readLine();
