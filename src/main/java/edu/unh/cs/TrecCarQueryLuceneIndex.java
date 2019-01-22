@@ -219,7 +219,9 @@ public class TrecCarQueryLuceneIndex {
 
                     String queryID = lines.stream()
                             .filter(str -> Arrays.stream(splittedLine).allMatch(str::contains))
-                            .findFirst().orElse("N/A");
+                            .findFirst()
+                            .orElse("N/A")
+                            .split("/")[0];
 
                     //Iterate over the scored docs
                     for (int i = 0; i < scoreDoc.length; i++) {
