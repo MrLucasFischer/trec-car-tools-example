@@ -38,7 +38,7 @@ import java.util.List;
 public class TrecCarQueryLuceneIndex {
 
     private static void usage() {
-        System.out.println("Command line parameters: action OutlineCBOR LuceneINDEX (benchmarkY2.topics for action 'iterate.topics'\n" +
+        System.out.println("Command line parameters: action OutlineCBOR LuceneINDEX (benchmarkY2.topics for action 'iterate.topics')\n" +
                 "action is one of output-sections | paragraphs-run-sections | paragraphs-run-pages | pages-run-pages | iterate-topics");
         System.exit(-1);
     }
@@ -208,7 +208,8 @@ public class TrecCarQueryLuceneIndex {
             String titlesFilePath = args[1];  //Get benchmarkY2.titles file
 
             List<String> lines = Files.readAllLines(Paths.get(args[3]), StandardCharsets.UTF_8);
-
+            System.out.println(args[3]);
+            System.out.println(lines.size());
             System.out.println(lines.get(0));
 
 //            try (BufferedReader br = new BufferedReader(new FileReader(titlesFilePath))) {
