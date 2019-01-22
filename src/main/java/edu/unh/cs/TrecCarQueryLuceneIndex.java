@@ -36,7 +36,7 @@ import java.util.*;
 public class TrecCarQueryLuceneIndex {
 
     private static void usage() {
-        System.out.println("Command line parameters: action OutlineCBOR LuceneINDEX (benchmarkY2.topics for action 'iterate.topics')\n" +
+        System.out.println("Command line parameters: action OutlineCBOR LuceneINDEX\n" +
                 "action is one of output-sections | paragraphs-run-sections | paragraphs-run-pages | pages-run-pages | iterate-topics");
         System.exit(-1);
     }
@@ -121,7 +121,7 @@ public class TrecCarQueryLuceneIndex {
             final FileInputStream fileInputStream3 = new FileInputStream(new File(pagesFile));
             for (Data.Page page : DeserializeData.iterableAnnotations(fileInputStream3)) {
                 for (List<Data.Section> sectionPath : page.flatSectionPaths()) {
-                    final String queryId = Data.sectionPathId(page.getPageId(), sectionPath);
+                    final String queryId = Data.sectionPathId(page.getPageId(), sectionPath); //TODO START FROM HERE
 
                     String queryStr = buildSectionQueryStr(page, sectionPath);
 
@@ -203,56 +203,77 @@ public class TrecCarQueryLuceneIndex {
 
             final MyQueryBuilder queryBuilder = new MyQueryBuilder(new StandardAnalyzer());
 
-            String titlesFilePath = args[1];  //Get benchmarkY2.titles file
+            final String topicsFile = args[1];    //Get test.benchmarkY1test.cbor.outlines file
+            final FileInputStream fileInputStream3 = new FileInputStream(new File(topicsFile));
 
-            try {
-                List<String> lines = Files.readAllLines(Paths.get(args[3]), StandardCharsets.UTF_8);
+            for (Data.Page page : DeserializeData.iterableAnnotations(fileInputStream3)) {
 
-                BufferedReader br = new BufferedReader(new FileReader(titlesFilePath));
-                String line = br.readLine();
-//                File resultFile = new File("trec_eval_input.txt");
-//                resultFile.delete();
-//                resultFile.createNewFile();
-                while (line != null) {  //Iterate over every line
+                for (List<Data.Section> sectionPath : page.flatSectionPaths()) {
+                    final String queryId = Data.sectionPathId(page.getPageId(), sectionPath); //Get QueryID
 
-                    TopDocs tops = searcher.search(queryBuilder.toQuery(line), 100); //Finds 100 docs for every query
+                    String queryStr = buildSectionQueryStr(page, sectionPath);  //Get queryString to search
 
-                    ScoreDoc[] scoreDoc = tops.scoreDocs;   //Scores the retrieved docs
-                    final String[] splittedLine = line.split(" ");
+                    TopDocs tops = searcher.search(queryBuilder.toQuery(queryStr), 100);    //Get 100 docs for the provided query
+                    ScoreDoc[] scoreDoc = tops.scoreDocs;
 
-                    String queryID = lines.stream()
-                            .filter(str -> Arrays.stream(splittedLine).allMatch(str::contains))
-                            .findFirst()
-                            .orElse("N/A")
-                            .split("/")[0];
-
-//                    FileWriter fw = new FileWriter(resultFile, true);
-//                    BufferedWriter bw = new BufferedWriter(fw);
-
-                    //Iterate over the scored docs
                     for (int i = 0; i < scoreDoc.length; i++) {
 
                         ScoreDoc score = scoreDoc[i];
-
                         final Document doc = searcher.doc(score.doc); // to access stored content
-
-                        final String paragraphID = doc.getField("paragraphid").stringValue();
-
+                        final String paragraphid = doc.getField("paragraphid").stringValue();
                         final float searchScore = score.score;
-
                         final int searchRank = i + 1;
 
-                        System.out.println(queryID + " Q0 " + paragraphID + " " + searchRank + " " + searchScore + " Lucene-BM25");
+                        System.out.println(queryId + " Q0 " + paragraphid + " " + searchRank + " " + searchScore + " Lucene-BM25");
                     }
 
-                    if (line.equals(""))
-                        break;
-
-                    line = br.readLine();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+
+
+//            try {
+//                List<String> lines = Files.readAllLines(Paths.get(args[3]), StandardCharsets.UTF_8);
+//
+//                BufferedReader br = new BufferedReader(new FileReader(titlesFilePath));
+//                String line = br.readLine();
+//
+//                while (line != null) {  //Iterate over every line
+//
+//                    TopDocs tops = searcher.search(queryBuilder.toQuery(line), 100); //Finds 100 docs for every query
+//
+//                    ScoreDoc[] scoreDoc = tops.scoreDocs;   //Scores the retrieved docs
+//                    final String[] splittedLine = line.split(" ");
+//
+//                    String queryID = lines.stream()
+//                            .filter(str -> Arrays.stream(splittedLine).allMatch(str::contains))
+//                            .findFirst()
+//                            .orElse("N/A")
+//                            .split("/")[0];
+//
+//                    //Iterate over the scored docs
+//                    for (int i = 0; i < scoreDoc.length; i++) {
+//
+//                        ScoreDoc score = scoreDoc[i];
+//
+//                        final Document doc = searcher.doc(score.doc); // to access stored content
+//
+//                        final String paragraphID = doc.getField("paragraphid").stringValue();
+//
+//                        final float searchScore = score.score;
+//
+//                        final int searchRank = i + 1;
+//
+//                        System.out.println(queryID + " Q0 " + paragraphID + " " + searchRank + " " + searchScore + " Lucene-BM25");
+//                    }
+//
+//                    if (line.equals(""))
+//                        break;
+//
+//                    line = br.readLine();
+//                }
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
 
         }
     }
