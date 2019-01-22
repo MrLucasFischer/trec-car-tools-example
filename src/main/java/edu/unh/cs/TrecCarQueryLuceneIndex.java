@@ -193,29 +193,47 @@ public class TrecCarQueryLuceneIndex {
                 }
 
             }
+
         } else if (mode.equals("iterate-topics")) {
-            IndexSearcher searcher = setupIndexSearcher(indexPath, "paragraph.lucene");
+
+            IndexSearcher searcher = setupIndexSearcher(indexPath, "paragraph.lucene"); //Create IndexSearcher
 
             searcher.setSimilarity(new BM25Similarity());
+
             final MyQueryBuilder queryBuilder = new MyQueryBuilder(new StandardAnalyzer());
 
-            String filePath = args[1];
+            String filePath = args[1];  //Get benchmarkY2.titles file
 
             try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
                 String line = br.readLine();
 
-                TopDocs tops = searcher.search(queryBuilder.toQuery(line), 100);
-                ScoreDoc[] scoreDoc = tops.scoreDocs;
-                System.out.println("Found " + scoreDoc.length + " results.");
-                for (ScoreDoc score : scoreDoc) {
-                    final Document doc = searcher.doc(score.doc); // to access stored content
-                    // print score and internal docid
-                    System.out.println(doc.getField("paragraphid").stringValue() + " (" + score.doc + "):  SCORE " + score.score + "\n");
-                    // access and print content
-//                        System.out.println("  " +doc.getField("text").stringValue());
-                    System.out.println(line);
+                while (line != null) {  //Iterate over every line
+
+                    TopDocs tops = searcher.search(queryBuilder.toQuery(line), 100); //Finds 100 docs for every query
+
+                    ScoreDoc[] scoreDoc = tops.scoreDocs;   //Scores the retrieved docs
+
+                    //Iterate over the scored docs
+                    for (int i = 0; i < scoreDoc.length; i++) {
+
+                        ScoreDoc score = scoreDoc[i];
+
+                        final Document doc = searcher.doc(score.doc); // to access stored content
+
+                        final String paragraphID = doc.getField("pageid").stringValue();
+
+                        final float searchScore = score.score;
+
+                        final int searchRank = i + 1;
+
+                        System.out.println("QueryID Q0 " + paragraphID + " " + searchRank + " " + searchScore + " Lucene-BM25");
+                    }
+
+                    if (line.equals(""))
+                        break;
+
+                    line = br.readLine();
                 }
-                System.out.println(line);
 
 
             } catch (Exception e) {
