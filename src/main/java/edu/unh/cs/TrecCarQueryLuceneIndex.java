@@ -21,10 +21,7 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /*
  * User: dietz
@@ -75,7 +72,7 @@ public class TrecCarQueryLuceneIndex {
     public static void main(String[] args) throws IOException {
         System.setProperty("file.encoding", "UTF-8");
 
-        if (args.length < 3 || (args.length == 3 && args[0].equals("iterate-topics")))
+        if (args.length < 3)
             usage();
 
 
@@ -206,51 +203,48 @@ public class TrecCarQueryLuceneIndex {
             final MyQueryBuilder queryBuilder = new MyQueryBuilder(new StandardAnalyzer());
 
             String titlesFilePath = args[1];  //Get benchmarkY2.titles file
+
             try {
                 List<String> lines = Files.readAllLines(Paths.get(args[3]), StandardCharsets.UTF_8);
-                System.out.println(args[3]);
-                System.out.println(lines.size());
-                System.out.println(lines.get(0));
+
+                BufferedReader br = new BufferedReader(new FileReader(titlesFilePath));
+                String line = br.readLine();
+
+                while (line != null) {  //Iterate over every line
+
+                    TopDocs tops = searcher.search(queryBuilder.toQuery(line), 100); //Finds 100 docs for every query
+
+                    ScoreDoc[] scoreDoc = tops.scoreDocs;   //Scores the retrieved docs
+                    final String[] splittedLine = line.split(" ");
+
+                    String queryID = lines.stream()
+                            .filter(str -> Arrays.stream(splittedLine).allMatch(str::contains))
+                            .findFirst().orElse("N/A");
+
+                    //Iterate over the scored docs
+                    for (int i = 0; i < scoreDoc.length; i++) {
+
+                        ScoreDoc score = scoreDoc[i];
+
+                        final Document doc = searcher.doc(score.doc); // to access stored content
+
+                        final String paragraphID = doc.getField("paragraphid").stringValue();
+
+                        final float searchScore = score.score;
+
+                        final int searchRank = i + 1;
+
+                        System.out.println(queryID + " Q0 " + paragraphID + " " + searchRank + " " + searchScore + " Lucene-BM25");
+                    }
+
+                    if (line.equals(""))
+                        break;
+
+                    line = br.readLine();
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
-//            try (BufferedReader br = new BufferedReader(new FileReader(titlesFilePath))) {
-//                String line = br.readLine();
-//
-//                while (line != null) {  //Iterate over every line
-//
-//                    TopDocs tops = searcher.search(queryBuilder.toQuery(line), 100); //Finds 100 docs for every query
-//
-//                    ScoreDoc[] scoreDoc = tops.scoreDocs;   //Scores the retrieved docs
-//
-//                    //Iterate over the scored docs
-//                    for (int i = 0; i < scoreDoc.length; i++) {
-//
-//                        ScoreDoc score = scoreDoc[i];
-//
-//                        final Document doc = searcher.doc(score.doc); // to access stored content
-//
-//                        final String paragraphID = doc.getField("paragraphid").stringValue();
-//
-//                        final float searchScore = score.score;
-//
-//                        final int searchRank = i + 1;
-//
-//                        System.out.println("QueryID Q0 " + paragraphID + " " + searchRank + " " + searchScore + " Lucene-BM25");
-//                    }
-//
-//                    if (line.equals(""))
-//                        break;
-//
-//                    line = br.readLine();
-//                }
-//
-//
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
 
         }
     }
