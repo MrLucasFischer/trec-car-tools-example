@@ -228,7 +228,6 @@ public class TrecCarQueryLuceneIndex {
 
                     FileWriter fw = new FileWriter(resultFile, true);
                     BufferedWriter bw = new BufferedWriter(fw);
-                    PrintWriter out = new PrintWriter(bw);
 
                     //Iterate over the scored docs
                     for (int i = 0; i < scoreDoc.length; i++) {
@@ -243,8 +242,7 @@ public class TrecCarQueryLuceneIndex {
 
                         final int searchRank = i + 1;
 
-                        out.println(queryID + " Q0 " + paragraphID + " " + searchRank + " " + searchScore + " Lucene-BM25");
-                        System.out.println("In here");
+                        bw.write(queryID + " Q0 " + paragraphID + " " + searchRank + " " + searchScore + " Lucene-BM25\n");
                     }
 
                     if (line.equals(""))
