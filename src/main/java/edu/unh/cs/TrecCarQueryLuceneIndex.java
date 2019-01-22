@@ -209,7 +209,7 @@ public class TrecCarQueryLuceneIndex {
             for (Data.Page page : DeserializeData.iterableAnnotations(fileInputStream3)) {
 
                 for (List<Data.Section> sectionPath : page.flatSectionPaths()) {
-                    final String queryId = Data.sectionPathId(page.getPageId(), sectionPath); //Get QueryID
+                    final String queryId = "enwiki:"+Data.sectionPathId(page.getPageId(), sectionPath); //Get QueryID
 
                     String queryStr = buildSectionQueryStr(page, sectionPath);  //Get queryString to search
 
