@@ -16,8 +16,11 @@ import org.apache.lucene.store.FSDirectory;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -35,8 +38,8 @@ import java.util.List;
 public class TrecCarQueryLuceneIndex {
 
     private static void usage() {
-        System.out.println("Command line parameters: action OutlineCBOR LuceneINDEX\n" +
-                "action is one of output-sections | paragraphs-run-sections | paragraphs-run-pages | pages-run-pages");
+        System.out.println("Command line parameters: action OutlineCBOR LuceneINDEX (benchmarkY2.topics for action 'iterate.topics'\n" +
+                "action is one of output-sections | paragraphs-run-sections | paragraphs-run-pages | pages-run-pages | iterate-topics");
         System.exit(-1);
     }
 
@@ -72,12 +75,12 @@ public class TrecCarQueryLuceneIndex {
     public static void main(String[] args) throws IOException {
         System.setProperty("file.encoding", "UTF-8");
 
-        if (args.length < 3)
+        if (args.length < 3 || (args.length == 3 && args[0].equals("iterate-topics")))
             usage();
+
 
         String mode = args[0];
         String indexPath = args[2];
-
 
         if (mode.equals("output-sections")) {
             IndexSearcher searcher = setupIndexSearcher(indexPath, "paragraph.lucene");
@@ -202,43 +205,47 @@ public class TrecCarQueryLuceneIndex {
 
             final MyQueryBuilder queryBuilder = new MyQueryBuilder(new StandardAnalyzer());
 
-            String filePath = args[1];  //Get benchmarkY2.titles file
+            String titlesFilePath = args[1];  //Get benchmarkY2.titles file
 
-            try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-                String line = br.readLine();
+            List<String> lines = Files.readAllLines(Paths.get(args[3]), StandardCharsets.UTF_8);
 
-                while (line != null) {  //Iterate over every line
+            System.out.println(lines.get(0));
 
-                    TopDocs tops = searcher.search(queryBuilder.toQuery(line), 100); //Finds 100 docs for every query
-
-                    ScoreDoc[] scoreDoc = tops.scoreDocs;   //Scores the retrieved docs
-
-                    //Iterate over the scored docs
-                    for (int i = 0; i < scoreDoc.length; i++) {
-
-                        ScoreDoc score = scoreDoc[i];
-
-                        final Document doc = searcher.doc(score.doc); // to access stored content
-
-                        final String paragraphID = doc.getField("paragraphid").stringValue();
-
-                        final float searchScore = score.score;
-
-                        final int searchRank = i + 1;
-
-                        System.out.println("QueryID Q0 " + paragraphID + " " + searchRank + " " + searchScore + " Lucene-BM25");
-                    }
-
-                    if (line.equals(""))
-                        break;
-
-                    line = br.readLine();
-                }
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+//            try (BufferedReader br = new BufferedReader(new FileReader(titlesFilePath))) {
+//                String line = br.readLine();
+//
+//                while (line != null) {  //Iterate over every line
+//
+//                    TopDocs tops = searcher.search(queryBuilder.toQuery(line), 100); //Finds 100 docs for every query
+//
+//                    ScoreDoc[] scoreDoc = tops.scoreDocs;   //Scores the retrieved docs
+//
+//                    //Iterate over the scored docs
+//                    for (int i = 0; i < scoreDoc.length; i++) {
+//
+//                        ScoreDoc score = scoreDoc[i];
+//
+//                        final Document doc = searcher.doc(score.doc); // to access stored content
+//
+//                        final String paragraphID = doc.getField("paragraphid").stringValue();
+//
+//                        final float searchScore = score.score;
+//
+//                        final int searchRank = i + 1;
+//
+//                        System.out.println("QueryID Q0 " + paragraphID + " " + searchRank + " " + searchScore + " Lucene-BM25");
+//                    }
+//
+//                    if (line.equals(""))
+//                        break;
+//
+//                    line = br.readLine();
+//                }
+//
+//
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
 
         }
     }
