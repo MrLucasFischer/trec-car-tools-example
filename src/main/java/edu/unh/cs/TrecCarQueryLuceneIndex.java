@@ -210,9 +210,9 @@ public class TrecCarQueryLuceneIndex {
 
                 BufferedReader br = new BufferedReader(new FileReader(titlesFilePath));
                 String line = br.readLine();
-                File resultFile = new File("trec_eval_input.txt");
-                resultFile.delete();
-                resultFile.createNewFile();
+//                File resultFile = new File("trec_eval_input.txt");
+//                resultFile.delete();
+//                resultFile.createNewFile();
                 while (line != null) {  //Iterate over every line
 
                     TopDocs tops = searcher.search(queryBuilder.toQuery(line), 100); //Finds 100 docs for every query
@@ -226,8 +226,8 @@ public class TrecCarQueryLuceneIndex {
                             .orElse("N/A")
                             .split("/")[0];
 
-                    FileWriter fw = new FileWriter(resultFile, true);
-                    BufferedWriter bw = new BufferedWriter(fw);
+//                    FileWriter fw = new FileWriter(resultFile, true);
+//                    BufferedWriter bw = new BufferedWriter(fw);
 
                     //Iterate over the scored docs
                     for (int i = 0; i < scoreDoc.length; i++) {
@@ -242,7 +242,7 @@ public class TrecCarQueryLuceneIndex {
 
                         final int searchRank = i + 1;
 
-                        bw.write(queryID + " Q0 " + paragraphID + " " + searchRank + " " + searchScore + " Lucene-BM25\n");
+                        System.out.println(queryID + " Q0 " + paragraphID + " " + searchRank + " " + searchScore + " Lucene-BM25");
                     }
 
                     if (line.equals(""))
