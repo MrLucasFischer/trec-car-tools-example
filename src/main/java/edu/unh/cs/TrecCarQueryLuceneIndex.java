@@ -21,6 +21,7 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.SQLOutput;
 import java.util.*;
 
 /*
@@ -243,6 +244,7 @@ public class TrecCarQueryLuceneIndex {
                         final int searchRank = i + 1;
 
                         out.println(queryID + " Q0 " + paragraphID + " " + searchRank + " " + searchScore + " Lucene-BM25");
+                        System.out.println("In here");
                     }
 
                     if (line.equals(""))
