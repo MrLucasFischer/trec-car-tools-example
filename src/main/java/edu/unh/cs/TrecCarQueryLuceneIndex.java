@@ -210,16 +210,16 @@ public class TrecCarQueryLuceneIndex {
             for (Data.Page page : DeserializeData.iterableAnnotations(fileInputStream3)) {
 
                 for (List<Data.Section> sectionPath : page.flatSectionPaths()) {
-                    final String queryId = "enwiki:"+Data.sectionPathId(page.getPageId(), sectionPath); //Get QueryID
+                    final String queryId = Data.sectionPathId(page.getPageId(), sectionPath); //Get QueryID
 
                     String queryStr = buildSectionQueryStr(page, sectionPath);  //Get queryString to search
 
-                    TopDocs tops = searcher.search(queryBuilder.toQuery(queryStr), 120);//Get 100 docs for the provided query
+                    TopDocs tops = searcher.search(queryBuilder.toQuery(queryStr), 100);//Get 100 docs for the provided query
 
                     ScoreDoc[] scoreDoc = tops.scoreDocs;
                     HashSet<Object> seen = new HashSet<>(100);
 
-                    for (int i = 0; i < Math.min(100, scoreDoc.length); i++) {
+                    for (int i = 0; i < scoreDoc.length; i++) {
 
                         ScoreDoc score = scoreDoc[i];
                         final Document doc = searcher.doc(score.doc); // to access stored content
