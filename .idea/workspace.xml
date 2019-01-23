@@ -26,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="217" column="57" lean-forward="true" selection-start-line="217" selection-start-column="57" selection-end-line="217" selection-end-column="57" />
+            <state relative-caret-position="621">
+              <caret line="231" column="50" selection-start-line="231" selection-start-column="50" selection-end-line="231" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -132,7 +132,7 @@
     <panes />
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548264132693" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548264458138" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
@@ -366,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548263802413</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Refactoring iterate-topics">
+      <created>1548264141196</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1548264141196</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -528,8 +535,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="217" column="57" lean-forward="true" selection-start-line="217" selection-start-column="57" selection-end-line="217" selection-end-column="57" />
+        <state relative-caret-position="621">
+          <caret line="231" column="50" selection-start-line="231" selection-start-column="50" selection-end-line="231" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
