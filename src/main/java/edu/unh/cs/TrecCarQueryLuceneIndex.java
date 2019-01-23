@@ -229,52 +229,6 @@ public class TrecCarQueryLuceneIndex {
 
                 }
             }
-
-
-//            try {
-//                List<String> lines = Files.readAllLines(Paths.get(args[3]), StandardCharsets.UTF_8);
-//
-//                BufferedReader br = new BufferedReader(new FileReader(titlesFilePath));
-//                String line = br.readLine();
-//
-//                while (line != null) {  //Iterate over every line
-//
-//                    TopDocs tops = searcher.search(queryBuilder.toQuery(line), 100); //Finds 100 docs for every query
-//
-//                    ScoreDoc[] scoreDoc = tops.scoreDocs;   //Scores the retrieved docs
-//                    final String[] splittedLine = line.split(" ");
-//
-//                    String queryID = lines.stream()
-//                            .filter(str -> Arrays.stream(splittedLine).allMatch(str::contains))
-//                            .findFirst()
-//                            .orElse("N/A")
-//                            .split("/")[0];
-//
-//                    //Iterate over the scored docs
-//                    for (int i = 0; i < scoreDoc.length; i++) {
-//
-//                        ScoreDoc score = scoreDoc[i];
-//
-//                        final Document doc = searcher.doc(score.doc); // to access stored content
-//
-//                        final String paragraphID = doc.getField("paragraphid").stringValue();
-//
-//                        final float searchScore = score.score;
-//
-//                        final int searchRank = i + 1;
-//
-//                        System.out.println(queryID + " Q0 " + paragraphID + " " + searchRank + " " + searchScore + " Lucene-BM25");
-//                    }
-//
-//                    if (line.equals(""))
-//                        break;
-//
-//                    line = br.readLine();
-//                }
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-
         }
     }
 
