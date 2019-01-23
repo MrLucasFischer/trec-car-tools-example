@@ -217,7 +217,7 @@ public class TrecCarQueryLuceneIndex {
                     TopDocs tops = searcher.search(queryBuilder.toQuery(queryStr), 120);    //Get 100 docs for the provided query
                     ScoreDoc[] scoreDoc = tops.scoreDocs;
                     HashSet<Object> seen = new HashSet<>();
-                    for (int i = 0; i < 100;) {
+                    for (int i = 0; i < Math.min(100, scoreDoc.length);) {
 
                         ScoreDoc score = scoreDoc[i];
                         final Document doc = searcher.doc(score.doc); // to access stored content
