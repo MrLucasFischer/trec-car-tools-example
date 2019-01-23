@@ -214,10 +214,10 @@ public class TrecCarQueryLuceneIndex {
 
                     String queryStr = buildSectionQueryStr(page, sectionPath);  //Get queryString to search
 
-                    TopDocs tops = searcher.search(queryBuilder.toQuery(queryStr), 100);    //Get 100 docs for the provided query
+                    TopDocs tops = searcher.search(queryBuilder.toQuery(queryStr), 120);    //Get 100 docs for the provided query
                     ScoreDoc[] scoreDoc = tops.scoreDocs;
-
-                    for (int i = 0; i < scoreDoc.length; i++) {
+                    HashSet<Object> seen = new HashSet<>();
+                    for (int i = 0; i < 100;) {
 
                         ScoreDoc score = scoreDoc[i];
                         final Document doc = searcher.doc(score.doc); // to access stored content
@@ -225,7 +225,11 @@ public class TrecCarQueryLuceneIndex {
                         final float searchScore = score.score;
                         final int searchRank = i + 1;
 
-                        System.out.println(queryId + " Q0 " + paragraphid + " " + searchRank + " " + searchScore + " Lucene-BM25");
+                        if(!seen.contains(paragraphid)){
+                            System.out.println(queryId + " Q0 " + paragraphid + " " + searchRank + " " + searchScore + " Lucene-BM25");
+                            seen.add(paragraphid);
+                            i++;
+                        }
                     }
 
                 }
