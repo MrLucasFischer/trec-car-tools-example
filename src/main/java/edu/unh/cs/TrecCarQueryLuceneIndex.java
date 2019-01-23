@@ -5,6 +5,7 @@ import edu.unh.cs.treccar_v2.read_data.CborFileTypeException;
 import edu.unh.cs.treccar_v2.read_data.CborRuntimeException;
 import edu.unh.cs.treccar_v2.read_data.DeserializeData;
 import org.apache.lucene.analysis.TokenStream;
+import org.apache.lucene.analysis.en.EnglishAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.document.Document;
@@ -43,10 +44,10 @@ public class TrecCarQueryLuceneIndex {
 
     static class MyQueryBuilder {
 
-        private final StandardAnalyzer analyzer;
+        private final EnglishAnalyzer analyzer;
         private List<String> tokens;
 
-        public MyQueryBuilder(StandardAnalyzer standardAnalyzer) {
+        public MyQueryBuilder(EnglishAnalyzer standardAnalyzer) {
             analyzer = standardAnalyzer;
             tokens = new ArrayList<>(128);
         }
@@ -84,7 +85,7 @@ public class TrecCarQueryLuceneIndex {
             IndexSearcher searcher = setupIndexSearcher(indexPath, "paragraph.lucene");
 
             searcher.setSimilarity(new BM25Similarity());
-            final MyQueryBuilder queryBuilder = new MyQueryBuilder(new StandardAnalyzer());
+            final MyQueryBuilder queryBuilder = new MyQueryBuilder(new EnglishAnalyzer());
 
             final String pagesFile = args[1];
             final FileInputStream fileInputStream3 = new FileInputStream(new File(pagesFile));
@@ -115,7 +116,7 @@ public class TrecCarQueryLuceneIndex {
             IndexSearcher searcher = setupIndexSearcher(indexPath, "paragraph.lucene");
 
             searcher.setSimilarity(new BM25Similarity());
-            final MyQueryBuilder queryBuilder = new MyQueryBuilder(new StandardAnalyzer());
+            final MyQueryBuilder queryBuilder = new MyQueryBuilder(new EnglishAnalyzer());
 
             final String pagesFile = args[1];
             final FileInputStream fileInputStream3 = new FileInputStream(new File(pagesFile));
@@ -144,7 +145,7 @@ public class TrecCarQueryLuceneIndex {
             IndexSearcher searcher = setupIndexSearcher(indexPath, "paragraph.lucene");
 
             searcher.setSimilarity(new BM25Similarity());
-            final MyQueryBuilder queryBuilder = new MyQueryBuilder(new StandardAnalyzer());
+            final MyQueryBuilder queryBuilder = new MyQueryBuilder(new EnglishAnalyzer());
 
             final String pagesFile = args[1];
             final FileInputStream fileInputStream3 = new FileInputStream(new File(pagesFile));
@@ -171,7 +172,7 @@ public class TrecCarQueryLuceneIndex {
             IndexSearcher searcher = setupIndexSearcher(indexPath, "pages.lucene");
 
             searcher.setSimilarity(new BM25Similarity());
-            final MyQueryBuilder queryBuilder = new MyQueryBuilder(new StandardAnalyzer());
+            final MyQueryBuilder queryBuilder = new MyQueryBuilder(new EnglishAnalyzer());
 
             final String pagesFile = args[1];
             final FileInputStream fileInputStream3 = new FileInputStream(new File(pagesFile));
@@ -201,7 +202,7 @@ public class TrecCarQueryLuceneIndex {
 
             searcher.setSimilarity(new BM25Similarity());
 
-            final MyQueryBuilder queryBuilder = new MyQueryBuilder(new StandardAnalyzer());
+            final MyQueryBuilder queryBuilder = new MyQueryBuilder(new EnglishAnalyzer());
 
             final String topicsFile = args[1];    //Get test.benchmarkY1test.cbor.outlines file
             final FileInputStream fileInputStream3 = new FileInputStream(new File(topicsFile));
