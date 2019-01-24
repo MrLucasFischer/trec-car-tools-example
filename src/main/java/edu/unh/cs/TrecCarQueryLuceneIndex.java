@@ -1,5 +1,6 @@
 package edu.unh.cs;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import edu.unh.cs.treccar_v2.Data;
 import edu.unh.cs.treccar_v2.read_data.CborFileTypeException;
 import edu.unh.cs.treccar_v2.read_data.CborRuntimeException;
@@ -65,9 +66,33 @@ public class TrecCarQueryLuceneIndex {
             tokenStream.end();
             tokenStream.close();
             BooleanQuery.Builder booleanQuery = new BooleanQuery.Builder();
+
+            BooleanQuery.Builder booleanQuery1 = new BooleanQuery.Builder();
             for (String token : tokens) {
-                booleanQuery.add(new TermQuery(new Term("text", token)), BooleanClause.Occur.SHOULD);
+                booleanQuery1.add(new TermQuery(new Term("text", token)), BooleanClause.Occur.SHOULD);
             }
+            BoostQuery unigramQuery = new BoostQuery(booleanQuery1.build(), 0.85f);
+            booleanQuery.add(unigramQuery, BooleanClause.Occur.SHOULD);
+
+            // oW1
+            BooleanQuery.Builder booleanQuery2 = new BooleanQuery.Builder();
+            for (int i = 0; i < tokens.size()-1; i++) {
+                booleanQuery2.add(new PhraseQuery(0, "text", tokens.get(i), tokens.get(i+1)), BooleanClause.Occur.SHOULD);
+            }
+            BoostQuery bigramQuery = new BoostQuery(booleanQuery2.build(), 0.10f);
+            booleanQuery.add(bigramQuery, BooleanClause.Occur.SHOULD);
+
+            // uW8
+            BooleanQuery.Builder booleanQuery3 = new BooleanQuery.Builder();
+            for (int i = 0; i < tokens.size()-1; i++) {
+                BooleanQuery.Builder booleanQuery31 = new BooleanQuery.Builder();
+                booleanQuery31.add(new PhraseQuery(8, "text", tokens.get(i), tokens.get(i+1)), BooleanClause.Occur.SHOULD);
+                booleanQuery31.add(new PhraseQuery(8, "text", tokens.get(i+1), tokens.get(i)), BooleanClause.Occur.SHOULD);
+                booleanQuery3.add(booleanQuery31.build(), BooleanClause.Occur.SHOULD);
+            }
+            BoostQuery unorderedQuery = new BoostQuery(booleanQuery3.build(), 0.05f);
+            booleanQuery.add(unorderedQuery, BooleanClause.Occur.SHOULD);
+
             return booleanQuery.build();
         }
     }
@@ -222,7 +247,7 @@ public class TrecCarQueryLuceneIndex {
                     final String queryId = Data.sectionPathId(page.getPageId(), sectionPath); //Get QueryID
 
                     String queryStr = buildSectionQueryStr(page, sectionPath);  //Get queryString to search
-
+//                    System.out.println(queryBuilder.toQuery(queryStr));
                     TopDocs tops = searcher.search(queryBuilder.toQuery(queryStr), 100);//Get 100 docs for the provided query
 
                     ScoreDoc[] scoreDoc = tops.scoreDocs;
