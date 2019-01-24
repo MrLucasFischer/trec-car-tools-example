@@ -72,7 +72,7 @@ public class TrecCarQueryLuceneIndex {
                 booleanQuery1.add(new TermQuery(new Term("text", token)), BooleanClause.Occur.SHOULD);
             }
             BoostQuery unigramQuery = new BoostQuery(booleanQuery1.build(), 0.85f);
-            booleanQuery.add(unigramQuery, BooleanClause.Occur.SHOULD);
+            booleanQuery.add(unigramQuery, BooleanClause.Occur.MUST);
 
             // oW1
             BooleanQuery.Builder booleanQuery2 = new BooleanQuery.Builder();
@@ -80,7 +80,7 @@ public class TrecCarQueryLuceneIndex {
                 booleanQuery2.add(new PhraseQuery(0, "text", tokens.get(i), tokens.get(i+1)), BooleanClause.Occur.SHOULD);
             }
             BoostQuery bigramQuery = new BoostQuery(booleanQuery2.build(), 0.10f);
-            booleanQuery.add(bigramQuery, BooleanClause.Occur.SHOULD);
+            booleanQuery.add(bigramQuery, BooleanClause.Occur.MUST);
 
             // uW8
             BooleanQuery.Builder booleanQuery3 = new BooleanQuery.Builder();
@@ -91,7 +91,7 @@ public class TrecCarQueryLuceneIndex {
                 booleanQuery3.add(booleanQuery31.build(), BooleanClause.Occur.SHOULD);
             }
             BoostQuery unorderedQuery = new BoostQuery(booleanQuery3.build(), 0.05f);
-            booleanQuery.add(unorderedQuery, BooleanClause.Occur.SHOULD);
+            booleanQuery.add(unorderedQuery, BooleanClause.Occur.MUST);
 
             return booleanQuery.build();
         }

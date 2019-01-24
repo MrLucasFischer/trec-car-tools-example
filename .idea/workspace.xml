@@ -26,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="226" column="28" lean-forward="true" selection-start-line="226" selection-start-column="28" selection-end-line="236" selection-end-column="13" />
+            <state relative-caret-position="627">
+              <caret line="93" column="69" selection-start-line="93" selection-start-column="69" selection-end-line="93" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#12974#12975#0" expanded="true" />
@@ -160,7 +160,7 @@
     <panes />
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548350181218" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548352285653" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
@@ -423,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548343104032</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Implemented SDM">
+      <created>1548350194598</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1548350194598</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -479,7 +486,8 @@
     <MESSAGE value="Changed from StandardAnalyzer to EnglishAnalyzer" />
     <MESSAGE value="Refactoring iterate-topics" />
     <MESSAGE value="Refactored iterate-topics to support generalization" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored iterate-topics to support generalization" />
+    <MESSAGE value="Implemented SDM" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented SDM" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -609,8 +617,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="226" column="28" lean-forward="true" selection-start-line="226" selection-start-column="28" selection-end-line="236" selection-end-column="13" />
+        <state relative-caret-position="627">
+          <caret line="93" column="69" selection-start-line="93" selection-start-column="69" selection-end-line="93" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#12974#12975#0" expanded="true" />
