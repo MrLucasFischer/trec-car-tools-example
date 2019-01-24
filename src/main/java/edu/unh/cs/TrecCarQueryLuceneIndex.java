@@ -12,6 +12,7 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.index.*;
 import org.apache.lucene.search.*;
 import org.apache.lucene.search.similarities.BM25Similarity;
+import org.apache.lucene.search.similarities.LMDirichletSimilarity;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.jetbrains.annotations.NotNull;
@@ -200,7 +201,15 @@ public class TrecCarQueryLuceneIndex {
 
             IndexSearcher searcher = setupIndexSearcher(indexPath, "paragraph.lucene"); //Create IndexSearcher
 
-            searcher.setSimilarity(new BM25Similarity());
+
+            if ("bm25".equals(args[3])) {
+                float k1 = Float.parseFloat(args[4]);
+                float b = Float.parseFloat(args[5]);
+                searcher.setSimilarity(new BM25Similarity(k1, b));
+            } else if ("lmd".equals(args[3])) {
+                float mu = Float.parseFloat(args[4]);
+                searcher.setSimilarity(new LMDirichletSimilarity(mu));
+            }
 
             final MyQueryBuilder queryBuilder = new MyQueryBuilder(new EnglishAnalyzer());
 
@@ -227,7 +236,7 @@ public class TrecCarQueryLuceneIndex {
                         final float searchScore = score.score;
                         final int searchRank = i + 1;
 
-                        if(!seen.contains(paragraphid)){
+                        if (!seen.contains(paragraphid)) {
                             System.out.println(queryId + " Q0 " + paragraphid + " " + searchRank + " " + searchScore + " Lucene-BM25");
                             seen.add(paragraphid);
                         }
