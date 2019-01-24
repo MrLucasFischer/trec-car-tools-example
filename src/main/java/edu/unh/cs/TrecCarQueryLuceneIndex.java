@@ -14,6 +14,9 @@ import org.apache.lucene.index.*;
 import org.apache.lucene.search.*;
 import org.apache.lucene.search.similarities.BM25Similarity;
 import org.apache.lucene.search.similarities.LMDirichletSimilarity;
+import org.apache.lucene.search.spans.SpanNearQuery;
+import org.apache.lucene.search.spans.SpanQuery;
+import org.apache.lucene.search.spans.SpanTermQuery;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.jetbrains.annotations.NotNull;
@@ -72,26 +75,27 @@ public class TrecCarQueryLuceneIndex {
                 booleanQuery1.add(new TermQuery(new Term("text", token)), BooleanClause.Occur.SHOULD);
             }
             BoostQuery unigramQuery = new BoostQuery(booleanQuery1.build(), 0.85f);
-            booleanQuery.add(unigramQuery, BooleanClause.Occur.MUST);
+            booleanQuery.add(unigramQuery, BooleanClause.Occur.SHOULD);
 
             // oW1
             BooleanQuery.Builder booleanQuery2 = new BooleanQuery.Builder();
-            for (int i = 0; i < tokens.size()-1; i++) {
-                booleanQuery2.add(new PhraseQuery(0, "text", tokens.get(i), tokens.get(i+1)), BooleanClause.Occur.SHOULD);
+            for (int i = 0; i < tokens.size() - 1; i++) {
+                SpanTermQuery t1 = new SpanTermQuery(new Term("text", tokens.get(i)));
+                SpanTermQuery t2 = new SpanTermQuery(new Term("text", tokens.get(i+1)));
+                booleanQuery2.add(new SpanNearQuery(new SpanQuery[]{t1, t2}, 1, true), BooleanClause.Occur.SHOULD);
             }
             BoostQuery bigramQuery = new BoostQuery(booleanQuery2.build(), 0.10f);
-            booleanQuery.add(bigramQuery, BooleanClause.Occur.MUST);
+            booleanQuery.add(bigramQuery, BooleanClause.Occur.SHOULD);
 
             // uW8
             BooleanQuery.Builder booleanQuery3 = new BooleanQuery.Builder();
-            for (int i = 0; i < tokens.size()-1; i++) {
-                BooleanQuery.Builder booleanQuery31 = new BooleanQuery.Builder();
-                booleanQuery31.add(new PhraseQuery(8, "text", tokens.get(i), tokens.get(i+1)), BooleanClause.Occur.SHOULD);
-                booleanQuery31.add(new PhraseQuery(8, "text", tokens.get(i+1), tokens.get(i)), BooleanClause.Occur.SHOULD);
-                booleanQuery3.add(booleanQuery31.build(), BooleanClause.Occur.SHOULD);
+            for (int i = 0; i < tokens.size() - 1; i++) {
+                SpanTermQuery t1 = new SpanTermQuery(new Term("text", tokens.get(i)));
+                SpanTermQuery t2 = new SpanTermQuery(new Term("text", tokens.get(i+1)));
+                booleanQuery3.add(new SpanNearQuery(new SpanQuery[]{t1, t2}, 8, false), BooleanClause.Occur.SHOULD);
             }
             BoostQuery unorderedQuery = new BoostQuery(booleanQuery3.build(), 0.05f);
-            booleanQuery.add(unorderedQuery, BooleanClause.Occur.MUST);
+            booleanQuery.add(unorderedQuery, BooleanClause.Occur.SHOULD);
 
             return booleanQuery.build();
         }

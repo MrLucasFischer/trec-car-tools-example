@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="313264a1-dbcd-4321-ba9b-776ff80b274b" name="Default Changelist" comment="">
+    <list default="true" id="313264a1-dbcd-4321-ba9b-776ff80b274b" name="Default Changelist" comment="Implemented SDM, updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java" afterDir="false" />
     </list>
@@ -26,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="93" column="69" selection-start-line="93" selection-start-column="69" selection-end-line="93" selection-end-column="69" />
+            <state relative-caret-position="381">
+              <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#12974#12975#0" expanded="true" />
@@ -55,15 +55,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="259">
               <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-analyzers-common/7.2.0/lucene-analyzers-common-7.2.0-sources.jar!/org/apache/lucene/analysis/en/EnglishAnalyzer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="52" column="70" selection-start-line="52" selection-start-column="70" selection-end-line="52" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -120,10 +111,10 @@
       <find>arg</find>
       <find>Stan</find>
       <find>Stand</find>
-      <find>Standard</find>
       <find>boost</find>
       <find>float boost</find>
       <find>English</find>
+      <find>Standard</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -160,7 +151,7 @@
     <panes />
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548352285653" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548353718373" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
@@ -430,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548350194598</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Implemented SDM, updated">
+      <created>1548352300958</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1548352300958</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -447,7 +445,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.26238146" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39936775" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39936775" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -487,14 +485,15 @@
     <MESSAGE value="Refactoring iterate-topics" />
     <MESSAGE value="Refactored iterate-topics to support generalization" />
     <MESSAGE value="Implemented SDM" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented SDM" />
+    <MESSAGE value="Implemented SDM, updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented SDM, updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java</url>
-          <line>249</line>
+          <line>253</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
@@ -615,10 +614,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-core/7.2.0/lucene-core-7.2.0-sources.jar!/org/apache/lucene/search/spans/SpanQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="93" column="69" selection-start-line="93" selection-start-column="69" selection-end-line="93" selection-end-column="69" />
+        <state relative-caret-position="381">
+          <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#12974#12975#0" expanded="true" />
