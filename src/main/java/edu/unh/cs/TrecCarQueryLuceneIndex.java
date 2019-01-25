@@ -70,6 +70,7 @@ public class TrecCarQueryLuceneIndex {
             tokenStream.close();
             BooleanQuery.Builder booleanQuery = new BooleanQuery.Builder();
 
+
             BooleanQuery.Builder booleanQuery1 = new BooleanQuery.Builder();
             for (String token : tokens) {
                 booleanQuery1.add(new TermQuery(new Term("text", token)), BooleanClause.Occur.SHOULD);
@@ -261,6 +262,7 @@ public class TrecCarQueryLuceneIndex {
 
                         ScoreDoc score = scoreDoc[i];
                         final Document doc = searcher.doc(score.doc); // to access stored content
+                        System.out.println(searcher.explain(queryBuilder.toQuery(queryStr), score.doc));
                         final String paragraphid = doc.getField("paragraphid").stringValue();
                         final float searchScore = score.score;
                         final int searchRank = i + 1;
