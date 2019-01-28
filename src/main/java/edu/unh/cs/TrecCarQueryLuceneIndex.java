@@ -251,6 +251,8 @@ public class TrecCarQueryLuceneIndex {
                 for (List<Data.Section> sectionPath : page.flatSectionPaths()) {
                     final String queryId = Data.sectionPathId(page.getPageId(), sectionPath); //Get QueryID
 
+                    sectionPath.forEach(section -> System.out.println(section.getHeading()));
+
                     String queryStr = buildSectionQueryStr(page, sectionPath);  //Get queryString to search
 //                    System.out.println(queryBuilder.toQuery(queryStr));
                     TopDocs tops = searcher.search(queryBuilder.toQuery(queryStr), 100);//Get 100 docs for the provided query

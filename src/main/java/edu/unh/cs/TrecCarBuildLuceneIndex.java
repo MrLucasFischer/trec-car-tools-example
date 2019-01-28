@@ -78,19 +78,17 @@ public class TrecCarBuildLuceneIndex {
             for (int i=1; pageIterator.hasNext(); i++){
                 Data.Page page = pageIterator.next();
                 final Document doc = pageToLuceneDoc(page);
-                System.out.println("Page Name: " + page.getPageName());
-                System.out.println("Page content: " + doc.getField("text").stringValue());
-//                indexWriter.addDocument(doc);
+                indexWriter.addDocument(doc);
                 if (i % 10000 == 0) {
                     System.out.print('.');
-//                    indexWriter.commit();
+                    indexWriter.commit();
                 }
             }
 
             System.out.println("\n Done indexing.");
 
 
-//            indexWriter.commit();
+            indexWriter.commit();
             indexWriter.close();
         }
     }
