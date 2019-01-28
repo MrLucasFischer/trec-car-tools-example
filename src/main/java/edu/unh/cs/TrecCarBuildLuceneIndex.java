@@ -15,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import java.io.*;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.sql.SQLOutput;
 import java.util.Collections;
 import java.util.Iterator;
 
@@ -53,17 +54,16 @@ public class TrecCarBuildLuceneIndex {
 
             for (int i=1; paragraphIterator.hasNext(); i++) {
                 final Document doc = paragraphToLuceneDoc(paragraphIterator.next());
-                System.out.println("Paragraph content: " + doc.getField("text").stringValue());
-//                indexWriter.addDocument(doc);
+                indexWriter.addDocument(doc);
                 if (i % 10000 == 0) {
                     System.out.print('.');
-//                    indexWriter.commit();
+                    indexWriter.commit();
                 }
             }
 
             System.out.println("\n Done indexing.");
 
-//            indexWriter.commit();
+            indexWriter.commit();
             indexWriter.close();
         }
         else if (mode.equals("pages")) {
@@ -76,18 +76,22 @@ public class TrecCarBuildLuceneIndex {
             final Iterator<Data.Page> pageIterator = DeserializeData.iterAnnotations(fileInputStream);
 
             for (int i=1; pageIterator.hasNext(); i++){
-                final Document doc = pageToLuceneDoc(pageIterator.next());
-                indexWriter.addDocument(doc);
+                Data.Page page = pageIterator.next();
+                final Document doc = pageToLuceneDoc(page);
+                System.out.println("Page Name: " + page.getPageName());
+                System.out.println("Page Type: " + page.getPageType());
+                System.out.println("Page content: " + doc.getField("text").stringValue());
+//                indexWriter.addDocument(doc);
                 if (i % 10000 == 0) {
                     System.out.print('.');
-                    indexWriter.commit();
+//                    indexWriter.commit();
                 }
             }
 
             System.out.println("\n Done indexing.");
 
 
-            indexWriter.commit();
+//            indexWriter.commit();
             indexWriter.close();
         }
     }
