@@ -51,18 +51,19 @@ public class TrecCarBuildLuceneIndex {
             final IndexWriter indexWriter = setupIndexWriter(indexPath, "paragraph.lucene");
             final Iterator<Data.Paragraph> paragraphIterator = DeserializeData.iterParagraphs(fileInputStream2);
 
-            for (int i=1; paragraphIterator.hasNext(); i++){
+            for (int i=1; paragraphIterator.hasNext(); i++) {
                 final Document doc = paragraphToLuceneDoc(paragraphIterator.next());
-                indexWriter.addDocument(doc);
+                System.out.println("Paragraph content: " + doc.getField("text").stringValue());
+//                indexWriter.addDocument(doc);
                 if (i % 10000 == 0) {
                     System.out.print('.');
-                    indexWriter.commit();
+//                    indexWriter.commit();
                 }
             }
 
             System.out.println("\n Done indexing.");
 
-            indexWriter.commit();
+//            indexWriter.commit();
             indexWriter.close();
         }
         else if (mode.equals("pages")) {

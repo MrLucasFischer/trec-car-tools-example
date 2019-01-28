@@ -262,7 +262,6 @@ public class TrecCarQueryLuceneIndex {
 
                         ScoreDoc score = scoreDoc[i];
                         final Document doc = searcher.doc(score.doc); // to access stored content
-                        System.out.println(searcher.explain(queryBuilder.toQuery(queryStr), score.doc));
                         final String paragraphid = doc.getField("paragraphid").stringValue();
                         final float searchScore = score.score;
                         final int searchRank = i + 1;
