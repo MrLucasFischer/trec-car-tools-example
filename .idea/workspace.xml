@@ -17,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarBuildLuceneIndex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="81" column="67" selection-start-line="81" selection-start-column="67" selection-end-line="81" selection-end-column="67" />
+            <state relative-caret-position="190">
+              <caret line="81" column="61" selection-start-line="81" selection-start-column="61" selection-end-line="81" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -72,15 +72,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/github/TREMA-UNH/trec-car-tools-java/13/trec-car-tools-java-13-sources.jar!/edu/unh/cs/treccar_v2/read_data/DeserializeData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="143" column="43" selection-start-line="143" selection-start-column="43" selection-end-line="143" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarToolsExample.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="779">
@@ -100,6 +91,7 @@
       <find>float boost</find>
       <find>English</find>
       <find>Standard</find>
+      <find>Page T</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -136,7 +128,7 @@
     <panes />
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548676802676" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548677098857" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
@@ -434,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548675993540</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Checking content of pages in paragraphs CBOR">
+      <created>1548676820941</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1548676820941</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -494,7 +493,8 @@
     <MESSAGE value="Implemented SDM, updated" />
     <MESSAGE value="cheking explain method" />
     <MESSAGE value="Checking content of paragraph CBOR" />
-    <option name="LAST_COMMIT_MESSAGE" value="Checking content of paragraph CBOR" />
+    <MESSAGE value="Checking content of pages in paragraphs CBOR" />
+    <option name="LAST_COMMIT_MESSAGE" value="Checking content of pages in paragraphs CBOR" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-core/7.2.0/lucene-core-7.2.0.jar!/org/apache/lucene/document/TextField.class">
@@ -596,24 +596,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/io/FileWriter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarToolsExample.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="779">
           <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/github/TREMA-UNH/trec-car-tools-java/13/trec-car-tools-java-13-sources.jar!/edu/unh/cs/treccar_v2/read_data/DeserializeData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="143" column="43" selection-start-line="143" selection-start-column="43" selection-end-line="143" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -627,10 +613,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/TREMA-UNH/trec-car-tools-java/13/trec-car-tools-java-13-sources.jar!/edu/unh/cs/treccar_v2/read_data/DeserializeData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="61" column="38" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/io/FileWriter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/TREMA-UNH/trec-car-tools-java/13/trec-car-tools-java-13-sources.jar!/edu/unh/cs/treccar_v2/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="222" column="29" selection-start-line="222" selection-start-column="29" selection-end-line="222" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarBuildLuceneIndex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="81" column="67" selection-start-line="81" selection-start-column="67" selection-end-line="81" selection-end-column="67" />
+        <state relative-caret-position="190">
+          <caret line="81" column="61" selection-start-line="81" selection-start-column="61" selection-end-line="81" selection-end-column="61" />
         </state>
       </provider>
     </entry>
