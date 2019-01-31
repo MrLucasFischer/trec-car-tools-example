@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="313264a1-dbcd-4321-ba9b-776ff80b274b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/unh/cs/BM25CtfSimilarity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/unh/cs/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_core_7_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_java5_16_0_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarToolsExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/treccar-tools-example.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treccar-tools-example.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="238" column="60" lean-forward="true" selection-start-line="238" selection-start-column="60" selection-end-line="238" selection-end-column="60" />
+            <state relative-caret-position="688">
+              <caret line="263" column="57" lean-forward="true" selection-start-line="263" selection-start-column="57" selection-end-line="263" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
+            <state relative-caret-position="431">
+              <caret line="71" column="42" lean-forward="true" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -103,8 +95,8 @@
         <option value="$PROJECT_DIR$/src/main/resources/public/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/edu/unh/cs/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/unh/cs/BM25CtfSimilarity.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -511,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548677990654</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="testing BM25CTF">
+      <created>1548936909385</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1548936909385</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -548,7 +547,6 @@
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added new mode to TrecCarQueryLuceneIndex" />
     <MESSAGE value="testing new mode" />
     <MESSAGE value="Testing new mode" />
     <MESSAGE value="Updates" />
@@ -573,7 +571,8 @@
     <MESSAGE value="Checking content of pages in paragraphs CBOR" />
     <MESSAGE value="Checking sectionHeading" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="testing BM25CTF" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing BM25CTF" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-core/7.2.0/lucene-core-7.2.0.jar!/org/apache/lucene/document/TextField.class">
@@ -712,13 +711,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/BM25CtfSimilarity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
@@ -748,11 +740,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="238" column="60" lean-forward="true" selection-start-line="238" selection-start-column="60" selection-end-line="238" selection-end-column="60" />
+        <state relative-caret-position="688">
+          <caret line="263" column="57" lean-forward="true" selection-start-line="263" selection-start-column="57" selection-end-line="263" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="71" column="42" lean-forward="true" selection-start-line="71" selection-start-column="42" selection-end-line="71" selection-end-column="42" />
         </state>
       </provider>
     </entry>
