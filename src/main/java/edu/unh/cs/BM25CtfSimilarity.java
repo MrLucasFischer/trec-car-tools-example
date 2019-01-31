@@ -496,7 +496,7 @@ public class BM25CtfSimilarity extends Similarity {
             this.pidf = pidf;
             this.idf = idf;
             this.avgdl = avgdl;
-            this.weight = ictf.getValue() * pidf.getValue() * idf.getValue() * boost;
+            this.weight = pidf.getValue() * idf.getValue() * boost;
             this.oldCache = oldCache;
             this.cache = cache;
         }
@@ -535,7 +535,7 @@ public class BM25CtfSimilarity extends Similarity {
         if (boostExpl.getValue() != 1.0f)
             subs.add(boostExpl);
         // ictf
-        subs.add(stats.ictf);
+//        subs.add(stats.ictf);
         // pidf
         subs.add(stats.pidf);
         // idf
@@ -543,7 +543,7 @@ public class BM25CtfSimilarity extends Similarity {
         Explanation tfNormExpl = explainTFNorm(doc, freq, stats, norms, lengthCache);
         subs.add(tfNormExpl);
         return Explanation.match(
-                boostExpl.getValue() * stats.ictf.getValue() * stats.pidf.getValue() * stats.idf.getValue() * tfNormExpl.getValue(),
+                boostExpl.getValue() * stats.pidf.getValue() * stats.idf.getValue() * tfNormExpl.getValue(),
                 "score(doc=" + doc + ",freq=" + freq + "), product of:", subs);
     }
 
