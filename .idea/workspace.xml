@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="313264a1-dbcd-4321-ba9b-776ff80b274b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/unh/cs/BM25CtfSimilarity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/unh/cs/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_core_7_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_java5_16_0_3.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarToolsExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/treccar-tools-example.iml" beforeDir="false" afterPath="$PROJECT_DIR$/treccar-tools-example.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,17 +24,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarBuildLuceneIndex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="79" column="59" selection-start-line="79" selection-start-column="59" selection-end-line="79" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="254" lean-forward="true" selection-start-line="254" selection-end-line="254" />
+            <state relative-caret-position="3097">
+              <caret line="194" column="52" selection-start-line="194" selection-start-column="52" selection-end-line="194" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -35,24 +34,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/github/TREMA-UNH/trec-car-tools-java/13/trec-car-tools-java-13-sources.jar!/edu/unh/cs/treccar_v2/read_data/DeserializeData.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
+            <state relative-caret-position="304">
+              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="238" column="60" lean-forward="true" selection-start-line="238" selection-start-column="60" selection-end-line="238" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarToolsExample.java">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
-              <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+            <state relative-caret-position="646">
+              <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -65,6 +86,9 @@
       <find>Standard</find>
       <find>Page T</find>
       <find>pageFrom</find>
+      <find>new BM25</find>
+      <find>freq</find>
+      <find>d</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -75,8 +99,11 @@
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarToolsExample.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarBuildLuceneIndex.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/public/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/unh/cs/Server.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/unh/cs/BM25CtfSimilarity.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java" />
       </list>
     </option>
@@ -89,60 +116,63 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="25" />
-    <option name="width" value="960" />
-    <option name="height" value="1055" />
+    <option name="y" value="27" />
+    <option name="width" value="940" />
+    <option name="height" value="1053" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="treccar-tools-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="trec-car-tools-example" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="treccar-tools-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.github.TREMA-UNH:trec-car-tools-java:13" type="70bed36:NamedLibraryElementNode" />
+              <item name="trec-car-tools-example" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="treccar-tools-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.github.TREMA-UNH:trec-car-tools-java:13" type="70bed36:NamedLibraryElementNode" />
-              <item name="trec-car-tools-java-13.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="trec-car-tools-example" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="treccar-tools-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.github.TREMA-UNH:trec-car-tools-java:13" type="70bed36:NamedLibraryElementNode" />
-              <item name="trec-car-tools-java-13.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="treccar_v2" type="462c0819:PsiDirectoryNode" />
+              <item name="trec-car-tools-example" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="treccar-tools-example" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.github.TREMA-UNH:trec-car-tools-java:13" type="70bed36:NamedLibraryElementNode" />
-              <item name="trec-car-tools-java-13.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="treccar_v2" type="462c0819:PsiDirectoryNode" />
-              <item name="read_data" type="462c0819:PsiDirectoryNode" />
+              <item name="trec-car-tools-example" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548677976204" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548771758631" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
@@ -162,7 +192,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Server">
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.unh.cs.Server" />
+      <module name="treccar-tools-example" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.unh.cs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TrecCarQueryLuceneIndex" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.unh.cs.TrecCarQueryLuceneIndex" />
       <module name="treccar-tools-example" />
@@ -179,6 +222,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Server" />
         <item itemvalue="Application.TrecCarQueryLuceneIndex" />
       </list>
     </recent_temporary>
@@ -460,14 +504,21 @@
       <option name="project" value="LOCAL" />
       <updated>1548677706296</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="update">
+      <created>1548677990654</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1548677990654</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.171875" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.36770833" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -475,8 +526,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.26238146" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32958034" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2620266" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39936775" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -484,7 +535,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32982087" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32958034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -497,7 +548,6 @@
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added gitignore" />
     <MESSAGE value="added new mode to TrecCarQueryLuceneIndex" />
     <MESSAGE value="testing new mode" />
     <MESSAGE value="Testing new mode" />
@@ -522,7 +572,8 @@
     <MESSAGE value="Checking content of paragraph CBOR" />
     <MESSAGE value="Checking content of pages in paragraphs CBOR" />
     <MESSAGE value="Checking sectionHeading" />
-    <option name="LAST_COMMIT_MESSAGE" value="Checking sectionHeading" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/lucene/lucene-core/7.2.0/lucene-core-7.2.0.jar!/org/apache/lucene/document/TextField.class">
@@ -617,31 +668,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarToolsExample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/io/FileWriter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/github/TREMA-UNH/trec-car-tools-java/13/trec-car-tools-java-13-sources.jar!/edu/unh/cs/treccar_v2/Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="23" selection-start-column="23" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -652,17 +682,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/github/TREMA-UNH/trec-car-tools-java/13/trec-car-tools-java-13-sources.jar!/edu/unh/cs/treccar_v2/Data.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarToolsExample.java" />
+    <entry file="file://$PROJECT_DIR$/public/index.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/index.html" />
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarBuildLuceneIndex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="79" column="59" selection-start-line="79" selection-start-column="59" selection-end-line="79" selection-end-column="59" />
+        <state relative-caret-position="3097">
+          <caret line="194" column="52" selection-start-line="194" selection-start-column="52" selection-end-line="194" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/BM25CtfSimilarity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="56" column="55" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#18323#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3018#3019#0" expanded="true" />
+            <element signature="e#3057#3058#0" expanded="true" />
+            <element signature="e#3997#3998#0" expanded="true" />
+            <element signature="e#4021#4022#0" expanded="true" />
+            <element signature="e#4753#4754#0" expanded="true" />
+            <element signature="e#4789#4790#0" expanded="true" />
+            <element signature="e#4964#4965#0" expanded="true" />
+            <element signature="e#5003#5004#0" expanded="true" />
+            <element signature="e#17802#17803#0" expanded="true" />
+            <element signature="e#17858#17859#0" expanded="true" />
+            <element signature="e#18005#18006#0" expanded="true" />
+            <element signature="e#18030#18031#0" expanded="true" />
+            <element signature="e#18176#18177#0" expanded="true" />
+            <element signature="e#18200#18201#0" expanded="true" />
+            <element signature="e#18346#18347#0" expanded="true" />
+            <element signature="e#18370#18371#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/unh/cs/TrecCarQueryLuceneIndex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="254" lean-forward="true" selection-start-line="254" selection-end-line="254" />
+        <state relative-caret-position="213">
+          <caret line="238" column="60" lean-forward="true" selection-start-line="238" selection-start-column="60" selection-end-line="238" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

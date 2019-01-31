@@ -82,7 +82,7 @@ public class TrecCarQueryLuceneIndex {
             BooleanQuery.Builder booleanQuery2 = new BooleanQuery.Builder();
             for (int i = 0; i < tokens.size() - 1; i++) {
                 SpanTermQuery t1 = new SpanTermQuery(new Term("text", tokens.get(i)));
-                SpanTermQuery t2 = new SpanTermQuery(new Term("text", tokens.get(i+1)));
+                SpanTermQuery t2 = new SpanTermQuery(new Term("text", tokens.get(i + 1)));
                 booleanQuery2.add(new SpanNearQuery(new SpanQuery[]{t1, t2}, 1, true), BooleanClause.Occur.SHOULD);
             }
             BoostQuery bigramQuery = new BoostQuery(booleanQuery2.build(), 0.10f);
@@ -92,7 +92,7 @@ public class TrecCarQueryLuceneIndex {
             BooleanQuery.Builder booleanQuery3 = new BooleanQuery.Builder();
             for (int i = 0; i < tokens.size() - 1; i++) {
                 SpanTermQuery t1 = new SpanTermQuery(new Term("text", tokens.get(i)));
-                SpanTermQuery t2 = new SpanTermQuery(new Term("text", tokens.get(i+1)));
+                SpanTermQuery t2 = new SpanTermQuery(new Term("text", tokens.get(i + 1)));
                 booleanQuery3.add(new SpanNearQuery(new SpanQuery[]{t1, t2}, 8, false), BooleanClause.Occur.SHOULD);
             }
             BoostQuery unorderedQuery = new BoostQuery(booleanQuery3.build(), 0.05f);
@@ -115,7 +115,7 @@ public class TrecCarQueryLuceneIndex {
         if (mode.equals("output-sections")) {
             IndexSearcher searcher = setupIndexSearcher(indexPath, "paragraph.lucene");
 
-            searcher.setSimilarity(new BM25Similarity());
+            searcher.setSimilarity(new BM25CtfSimilarity());
             final MyQueryBuilder queryBuilder = new MyQueryBuilder(new EnglishAnalyzer());
 
             final String pagesFile = args[1];
@@ -146,7 +146,7 @@ public class TrecCarQueryLuceneIndex {
         } else if (mode.equals("paragraphs-run-sections")) {
             IndexSearcher searcher = setupIndexSearcher(indexPath, "paragraph.lucene");
 
-            searcher.setSimilarity(new BM25Similarity());
+            searcher.setSimilarity(new BM25CtfSimilarity());
             final MyQueryBuilder queryBuilder = new MyQueryBuilder(new EnglishAnalyzer());
 
             final String pagesFile = args[1];
@@ -175,7 +175,7 @@ public class TrecCarQueryLuceneIndex {
         } else if (mode.equals("paragraphs-run-pages")) {
             IndexSearcher searcher = setupIndexSearcher(indexPath, "paragraph.lucene");
 
-            searcher.setSimilarity(new BM25Similarity());
+            searcher.setSimilarity(new BM25CtfSimilarity());
             final MyQueryBuilder queryBuilder = new MyQueryBuilder(new EnglishAnalyzer());
 
             final String pagesFile = args[1];
@@ -202,7 +202,7 @@ public class TrecCarQueryLuceneIndex {
         } else if (mode.equals("pages-run-pages")) {
             IndexSearcher searcher = setupIndexSearcher(indexPath, "pages.lucene");
 
-            searcher.setSimilarity(new BM25Similarity());
+            searcher.setSimilarity(new BM25CtfSimilarity());
             final MyQueryBuilder queryBuilder = new MyQueryBuilder(new EnglishAnalyzer());
 
             final String pagesFile = args[1];
@@ -233,12 +233,16 @@ public class TrecCarQueryLuceneIndex {
 
 
             if ("bm25".equals(args[3])) {
+
                 float k1 = Float.parseFloat(args[4]);
                 float b = Float.parseFloat(args[5]);
-                searcher.setSimilarity(new BM25Similarity(k1, b));
+                searcher.setSimilarity(new BM25CtfSimilarity(k1, b, 0.5f));
+
             } else if ("lmd".equals(args[3])) {
+
                 float mu = Float.parseFloat(args[4]);
                 searcher.setSimilarity(new LMDirichletSimilarity(mu));
+
             }
 
             final MyQueryBuilder queryBuilder = new MyQueryBuilder(new EnglishAnalyzer());
